@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = function (config, { isClient, isDev }) {
-  config.default.plugins.push(
+  config.plugins.push(
     new webpack.NormalModuleReplacementPlugin(/(\.*)/, resource => {
       let match;
 
