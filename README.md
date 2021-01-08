@@ -12,12 +12,14 @@ Next, create a file `theme.json` with the following content. A sample is provide
 }
 ```
 
+Copy the file `router/index.js.dist` to `router/index.js`.
+
 Copy over the following folders from your parent theme to this child theme:
 - `assets/`
 - `css/`
 - `resource/`
 
-## Installation for the Default Theme
+## Additional step for the Default Theme
 - Copy `webpack.config.js.dist` to `webpack.config.js`
 - Copy `index.js.dist` to `index.js`
 - Edit `index.js` so that it matches your theme:
@@ -26,7 +28,7 @@ Copy over the following folders from your parent theme to this child theme:
 import { themeEntry } from '../default';
 ```
 
-## Installation for the Capybara Theme
+## Additional step for the Capybara Theme
 - Copy `index.js.dist` to `index.js`
 - Copy `webpack.config.js` from Capybara to your theme
 - Edit the file `webpack.config` so that the Webpack plugin is added:
