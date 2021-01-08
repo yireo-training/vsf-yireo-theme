@@ -28,6 +28,13 @@ Copy over the following folders from your parent theme to this child theme:
 import { themeEntry } from '../default';
 ```
 
+- Edit `router/index.js` so that it matches your theme:
+
+```js
+import routes from '../../default/router';
+```
+
+
 ## Additional step for the Capybara Theme
 - Copy `index.js.dist` to `index.js`
 - Copy `webpack.config.js` from Capybara to your theme
