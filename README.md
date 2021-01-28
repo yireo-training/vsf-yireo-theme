@@ -11,9 +11,9 @@ Next, create a file `theme.json` with the following content. A sample is provide
 }
 ```
 
-Copy `index.js.dist` to `index.js`
+Copy `index.js.dist` to `index.js` IF (!) you want to have a clean start. Or study its contents. These files are **not** a drop-in click-click solution. They require you to be a Vue Storefront 1 developer that knows how to customize a Vue Storefront 1 theme. Otherwise copy the file from the parent theme, modify its paths (`import`) to be correctly pointing to the right files, and hack the demo.
 
-Copy the file `router/index.js.dist` to `router/index.js`.
+Copy the file `router/index.js.dist` to `router/index.js` IF (!) you want to have the routing this way. See the comment above.
 
 Copy over the following folders from your parent theme to this child theme:
 - `assets/`
