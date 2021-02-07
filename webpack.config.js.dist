@@ -1,7 +1,0 @@
-const webpack = require('webpack');
-const replacementPlugin = require('./webpack.replacement');
-
-module.exports = function (config) {
-  config.plugins.push(replacementPlugin);
-  return config;
-};

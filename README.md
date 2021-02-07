@@ -21,7 +21,18 @@ Copy over the following folders from your parent theme to this child theme:
 - `resource/`
 
 ## Additional step for the Default Theme
-Copy `webpack.config.js.dist` to `webpack.config.js`
+Create a `webpack.config.js` file with the following contents:
+```js
+const InheritancePlugin = require('./webpack.inheritance.plugin');
+const themeJson = require('./theme.json');
+
+module.exports = function (config, {isClient}) {
+  if (!config.resolve.plugins) config.resolve.plugins = [];
+  config.resolve.plugins.push(new InheritancePlugin({parent: themeJson.parent}));
+  
+  return config;
+};
+```
 
 Edit `index.js` so that it matches your theme:
 ```js
@@ -33,20 +44,27 @@ Edit `router/index.js` so that it matches your theme:
 import routes from '../../default/router';
 ```
 
-
 ## Additional step for the Capybara Theme
 Copy `webpack.config.js` from Capybara to your theme. Edit the file `webpack.config.js` so that the Webpack plugin is added.
 
 In the top:
 ```js
-const replacementPlugin = require('./webpack.replacement');
+const InheritancePlugin = require("./webpack.inheritance.plugin");
+const themeJson = require("./theme.json");
 ```
 
-Towards the end:
+In the bottom:
 ```js
-  config.plugins.push(replacementPlugin);
-  const mergedConfig = merge(...);
+  ...
+
+  if (!mergedConfig.resolve.plugins) mergedConfig.resolve.plugins = [];
+  mergedConfig.resolve.plugins.push(new Vsf1ThemeInheritancePlugin({parent: themeJson.parent}));
+
+  return mergedConfig;
+};
 ```
+
+Do make sure to copy the file `config/modules.ts` from Capybara into your custom theme.
 
 ## Usage: Components
 You can copy any component file (like `pages/Home.vue`) from the parent theme to the child theme. This should automatically be resolved correctly.
@@ -65,3 +83,7 @@ export default routes;
 
 ## Usage: CSS & assets & resources
 CSS & assets & resources are not resolved automatically. But if you are extending upon Capybara, you will only need to copy a single file `css/main.scss` with a single line of code, and then you're good to go.
+
+## TODO
+- Add the Webpack plugin via a NPM package
+
