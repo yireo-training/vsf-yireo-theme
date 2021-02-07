@@ -4,6 +4,10 @@ A parent/child theme mechanism for Vue Storefront 1.
 ## Installation
 Fork this repository under your own GitHub account and clone it to the `src/themes/` folder - for instance `src/themes/example`.
 
+Within the theme folder `src/themes/example`, run the following command:
+
+    yarn add @yireo/vsf1-webpack-inheritance-plugin
+
 Next, create a file `theme.json` with the following content. A sample is provided in `theme.json.dist`:
 ```json
 {
@@ -23,7 +27,7 @@ Copy over the following folders from your parent theme to this child theme:
 ## Additional step for the Default Theme
 Create a `webpack.config.js` file with the following contents:
 ```js
-const InheritancePlugin = require('./webpack.inheritance.plugin');
+const InheritancePlugin = require('@yireo/vsf1-webpack-inheritance-plugin');
 const themeJson = require('./theme.json');
 
 module.exports = function (config, {isClient}) {
@@ -49,7 +53,7 @@ Copy `webpack.config.js` from Capybara to your theme. Edit the file `webpack.con
 
 In the top:
 ```js
-const InheritancePlugin = require("./webpack.inheritance.plugin");
+const InheritancePlugin = require("@yireo/vsf1-webpack-inheritance-plugin");
 const themeJson = require("./theme.json");
 ```
 
@@ -83,7 +87,4 @@ export default routes;
 
 ## Usage: CSS & assets & resources
 CSS & assets & resources are not resolved automatically. But if you are extending upon Capybara, you will only need to copy a single file `css/main.scss` with a single line of code, and then you're good to go.
-
-## TODO
-- Add the Webpack plugin via a NPM package
 

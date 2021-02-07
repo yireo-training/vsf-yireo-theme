@@ -1,9 +1,0 @@
-const Vsf1ThemeInheritancePlugin = require('./webpack.replacement');
-const themeJson = require('./theme.json');
-
-module.exports = function (config, {isClient}) {
-  if (!config.resolve.plugins) config.resolve.plugins = [];
-  config.resolve.plugins.push(new Vsf1ThemeInheritancePlugin({parent: themeJson.parent}));
-  
-  return config;
-};
