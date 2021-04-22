@@ -23,6 +23,7 @@ Copy over the following folders from your parent theme to this child theme:
 - `assets/`
 - `css/`
 - `resource/`
+- `templates/`
 
 ## Additional step for the Default Theme
 Create a `webpack.config.js` file with the following contents:
